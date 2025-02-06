@@ -16,7 +16,8 @@ mkdir -p "$output_dir"
 echo "Converting: $input_file"
 echo "Output Directory: $output_dir"
 
-libreoffice --headless --convert-to pdf "$input_file" --outdir "$directory"
+#libreoffice --headless --convert-to pdf "$input_file" --outdir "$directory"
+libreoffice --headless "$input_file" macro:///ExpandAnimations.ExpandAnimations.test
 pdf_file="${directory}/${filename}.pdf"
 
 if [ -f "$pdf_file" ]; then
